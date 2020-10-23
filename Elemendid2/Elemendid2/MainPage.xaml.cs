@@ -10,41 +10,66 @@ namespace Elemendid2
 {
     public partial class MainPage : ContentPage
     {
+        
         Button btn, btn1, btn2, btn3, btn4, btn5, btn6;
-        StackLayout stack;
+        
         Button[] btns = new Button[7];
+        StackLayout stack;
+        string[] paevad = new string[] { "Esmaspäev", "Teisipäev", "Kolmapäev", "Neljapäev", " Reede", "Laupäev", "Pühapäev" };
 
         public MainPage()
         {
+            Title = "Päevaplaan";
             stack = new StackLayout();
-            btn = new Button()
-            {
-                Text = "Esmaspäev",
-            };
-            btn.Clicked += Btn_Clicked;
 
+            stack.Padding = new Thickness(10, 10, 10, 10);
             for (int i = 0; i < 7; i++)
             {
-                btns[i] = new Button() { Text = "new",};
 
+                foreach (var item in paevad)
+                {
+                    btns[i] = new Button() { Text = paevad[i] };
+                }
                 stack.Children.Add(btns[i]);
+                btns[i].Clicked += Btn_Clicked;
+                
+
             };
 
             Content = stack;
-
-            StackLayout stackLayout = new StackLayout()
-            {
-                Children = { btn }
-            };
-            Content = stackLayout;
         }
-
-        
-
 
         private async void Btn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Esmaspäev());
+            string s = (sender as Button).Text;
+            if (s == "Esmaspäev")
+            {
+                await Navigation.PushAsync(new Esmaspäev());
+            }
+            else if (s == "Teisipäev")
+            {
+                await Navigation.PushAsync(new Teisipaev());
+            }
+            else if(s == "Kolmapäev")
+            {
+                await Navigation.PushAsync(new Kolmapaev());
+            }
+            else if(s == "Neljapäev")
+            {
+                await Navigation.PushAsync(new Neljapaev());
+            }
+            else if (s == "Reede")
+            {
+                await Navigation.PushAsync(new Reede());
+            }
+            else if (s == "Laupäev")
+            {
+                await Navigation.PushAsync(new Laupaev());
+            }
+            else if(s == "Pühapäev")
+            {
+                await Navigation.PushAsync(new Puhapaev());
+            }
         }
     }
 }

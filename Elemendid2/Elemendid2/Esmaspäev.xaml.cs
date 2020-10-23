@@ -14,23 +14,34 @@ namespace Elemendid2
     {
         Button btn;
         Label lbl;
+        ListView listView;
+
         public Esmaspäev()
         {
+            string[] tasks = new string[] { "7:00 Tõusen püsti", "7:20 Söön putru", " 8:00 Jalutan", " 10:30 Lähen lõunale", "12:45 Tegelen spordiga", "19:00 Söön", "22:00 Magan" };
+            listView = new ListView();
+            listView.ItemsSource = tasks;
+
             Title = "Esmaspäev";
+
             btn = new Button()
             {
                 Text = "Teisipäev",
             };
+
             btn.Clicked += Btn_Clicked;
+
             lbl = new Label()
             {
                 Text = "Esmaspäev!",
                 HorizontalOptions = LayoutOptions.Center,
+                FontSize = 24,
+                TextColor = Color.Black,
             };
 
             StackLayout stackLayout = new StackLayout()
             {
-                Children = { lbl, btn }
+                Children = { lbl, listView, btn }
             };
             Content = stackLayout;
 

@@ -12,7 +12,11 @@ namespace Elemendid2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Kolmapaev : ContentPage
     {
+        Button btn;
         Label lbl;
+        TableView content;
+        TableRoot tabelRoot;
+        TableSection tabelSection;
         public Kolmapaev()
         {
             Title = "Kolmapäev";
@@ -20,6 +24,11 @@ namespace Elemendid2
             {
                 Text = "Kolmapäev",
             };
+            btn = new Button()
+            {
+                Text = "Neljapäev",
+            };
+
             StackLayout stackLayout = new StackLayout()
             {
                 Children = { lbl }
