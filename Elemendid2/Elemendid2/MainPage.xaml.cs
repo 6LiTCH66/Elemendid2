@@ -11,7 +11,7 @@ namespace Elemendid2
     public partial class MainPage : ContentPage
     {
         
-        Button btn, btn1, btn2, btn3, btn4, btn5, btn6;
+
         
         Button[] btns = new Button[7];
         StackLayout stack;
