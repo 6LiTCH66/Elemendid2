@@ -13,13 +13,14 @@ namespace Elemendid2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Kolmapaev : ContentPage
     {
-        Button btn;
+        Button btn, btn2;
         Label lbl;
         TableView tableView;
         TableRoot Tableroot;
         TableSection tabelSection;
         public Kolmapaev()
         {
+            Title = "Kolmapäev";
             BackgroundColor = Color.White;
             Title = "Kolmapäev";
             lbl = new Label()
@@ -32,32 +33,46 @@ namespace Elemendid2
             };
             btn.Clicked += Btn_Clicked;
 
+            btn2 = new Button()
+            {
+                Text = "Päevaplan",
+            };
+            btn2.Clicked += Btn_Clicked;
+
             tableView = new TableView
             {
                 Root = new TableRoot
                 {
-                    new TableSection("Agent Sales Details")
+                    new TableSection("")
                     {
-                      // TableSection constructor takes title as an optional parameter
-                      new EntryCell{Label = "50 + 21", Placeholder = "Kirjuta siin"},
-                      new EntryCell{Label = "5 * 5 + 5", Placeholder = "Kirjuta siin"},
-                      new EntryCell{Label = "11 * 11", Placeholder = "Kirjuta siin"},
-                      new EntryCell{Label = "2 ^ 4", Placeholder = "Kirjuta siin"},
-                      new EntryCell{Label = "1 + 3 - 2", Placeholder = "Kirjuta siin"},    
+                      new EntryCell{Label = "Mis su nimi on?", Placeholder = "Kirjuta siin"},
+                      new EntryCell{Label = "Mis su perekonanimi on?", Placeholder = "Kirjuta siin"},
+                      new EntryCell{Label = "Kui vana sa oled?", Placeholder = "Kirjuta siin"},
+                      new EntryCell{Label = "Kuhu sa elad?", Placeholder = "Kirjuta siin"},
+                      new EntryCell{Label = "Millal on sinu sünipäev", Placeholder = "Kirjuta siin"},
                     }
                 },
                 Intent = TableIntent.Settings
             };
             StackLayout stackLayout = new StackLayout()
             {
-                Children = { lbl, tableView, btn }
+                Children = { lbl, tableView, btn, btn2 }
             };
             Content = stackLayout;
         }
 
         private async void Btn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Neljapaev());
+            string s = (sender as Button).Text;
+            if(s == "Neljapäev")
+            {
+                await Navigation.PushAsync(new Neljapaev());
+            }
+            
+            else if(s == "Päevaplan")
+            {
+                await Navigation.PushAsync(new MainPage());
+            }
         }
     }
 }

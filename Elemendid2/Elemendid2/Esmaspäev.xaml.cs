@@ -12,12 +12,13 @@ namespace Elemendid2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Esmaspäev : ContentPage
     {
-        Button btn;
+        Button btn, btn2;
         Label lbl;
         ListView listView;
 
         public Esmaspäev()
         {
+            Title = "Esmaspäev";
             string[] tasks = new string[] { "7:00 Tõusen püsti", "7:20 Söön putru", " 8:00 Jalutan", " 10:30 Lähen lõunale", "12:45 Tegelen spordiga", "19:00 Söön", "22:00 Magan" };
             listView = new ListView();
             listView.ItemsSource = tasks;
@@ -39,9 +40,15 @@ namespace Elemendid2
                 TextColor = Color.Black,
             };
 
+            btn2 = new Button()
+            {
+                Text = "Päevaplan",
+            };
+            btn2.Clicked += Btn_Clicked;
+
             StackLayout stackLayout = new StackLayout()
             {
-                Children = { lbl, listView, btn }
+                Children = { lbl, listView, btn, btn2 }
             };
             Content = stackLayout;
 
@@ -49,7 +56,16 @@ namespace Elemendid2
 
         private async void Btn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Teisipaev());
+            string s = (sender as Button).Text;
+            if(s == "Teisipäev")
+            {
+                await Navigation.PushAsync(new Teisipaev());
+            }
+            else if(s == "Päevaplan")
+            {
+                await Navigation.PushAsync(new MainPage());
+            }
+            
         }
     }
 }

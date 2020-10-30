@@ -12,9 +12,8 @@ namespace Elemendid2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Teisipaev : ContentPage
     {
-        Button btn1;
-        Label lbl, lbl2;
-        ListView listView;
+        Button btn1, btn2;
+        Label lbl;
         DatePicker datePicker;
         public Teisipaev()
         {
@@ -34,6 +33,12 @@ namespace Elemendid2
             };
             btn1.Clicked += Btn1_Clicked;
 
+            btn2 = new Button()
+            {
+                Text = "Päevaplan",
+            };
+            btn2.Clicked += Btn1_Clicked;
+
             lbl = new Label()
             {
                 Text = "Teisipäev",
@@ -41,10 +46,12 @@ namespace Elemendid2
 
             StackLayout stackLayout = new StackLayout()
             {
-                Children = { lbl, datePicker, btn1}
+                Children = { lbl, datePicker, btn1, btn2}
             };
             Content = stackLayout;
         }
+
+
 
         private async void Btn1_Clicked(object sender, EventArgs e)
         {
@@ -53,6 +60,11 @@ namespace Elemendid2
             {
                 await Navigation.PushAsync(new Kolmapaev());
             }
+            else if (s == "Päevaplan")
+            {
+                await Navigation.PushAsync(new MainPage());
+            }
+
         }
     }
 }

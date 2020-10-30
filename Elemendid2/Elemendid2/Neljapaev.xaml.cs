@@ -15,10 +15,11 @@ namespace Elemendid2
         Entry entry;
         Label lbl1, lbl2;
         Switch _switch;
-        Button btn;
+        Button btn, btn2;
         TimePicker timePicker;
         public Neljapaev()
         {
+            Title = "Neljapäev";
             entry = new Entry
             {
                 Placeholder = "Sisestage meeldetuletatav sündmus",
@@ -46,6 +47,12 @@ namespace Elemendid2
             };
             btn.Clicked += Btn_Clicked;
 
+            btn2 = new Button()
+            {
+                Text = "Päevaplan",
+            };
+            btn2.Clicked += Btn_Clicked;
+
             timePicker = new TimePicker
             {
                 Time = new TimeSpan(11, 0, 0),
@@ -59,7 +66,7 @@ namespace Elemendid2
 
             StackLayout stackLayout = new StackLayout()
             {
-                Children = { entry, lbl1, timePicker, stackLayout1 , btn}
+                Children = { entry, lbl1, timePicker, stackLayout1 , btn, btn2}
             };
             Content = stackLayout;
         }
@@ -71,7 +78,16 @@ namespace Elemendid2
 
         private async void Btn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Reede());
+            string s = (sender as Button).Text;
+            if(s == "Reede")
+            {
+                await Navigation.PushAsync(new Reede());
+            }
+            else if(s == "Päevaplan")
+            {
+                await Navigation.PushAsync(new MainPage());
+            }
+            
         }
     }
 }

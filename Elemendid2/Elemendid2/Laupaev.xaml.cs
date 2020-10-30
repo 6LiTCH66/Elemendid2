@@ -14,7 +14,7 @@ namespace Elemendid2
     {
         public Laupaev()
         {
-            InitializeComponent();
+
         }
     }
 }
