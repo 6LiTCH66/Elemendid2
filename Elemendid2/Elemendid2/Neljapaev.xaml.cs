@@ -19,7 +19,7 @@ namespace Elemendid2
         TimePicker timePicker;
         public Neljapaev()
         {
-            Title = "Neljapäev";
+            Title = "TimePicker";
             entry = new Entry
             {
                 Placeholder = "Sisestage meeldetuletatav sündmus",
@@ -43,13 +43,13 @@ namespace Elemendid2
             _switch.Toggled += _switch_Toggled;
             btn = new Button()
             {
-                Text = "Reede",
+                Text = "Speek",
             };
             btn.Clicked += Btn_Clicked;
 
             btn2 = new Button()
             {
-                Text = "Päevaplan",
+                Text = "Koju",
             };
             btn2.Clicked += Btn_Clicked;
 
@@ -79,11 +79,11 @@ namespace Elemendid2
         private async void Btn_Clicked(object sender, EventArgs e)
         {
             string s = (sender as Button).Text;
-            if(s == "Reede")
+            if(s == "Speek")
             {
                 await Navigation.PushAsync(new Reede());
             }
-            else if(s == "Päevaplan")
+            else if(s == "Koju")
             {
                 await Navigation.PushAsync(new MainPage());
             }

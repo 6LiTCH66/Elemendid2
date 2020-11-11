@@ -25,23 +25,23 @@ namespace Elemendid2
                 Date = new DateTime(2020, 10, 23),
             };
 
-            Title = "Teisipäev";
+            Title = "DatePicker";
 
             btn1 = new Button()
             {
-                Text = "Kolmapäev",
+                Text = "TableView",
             };
             btn1.Clicked += Btn1_Clicked;
 
             btn2 = new Button()
             {
-                Text = "Päevaplan",
+                Text = "Koju",
             };
             btn2.Clicked += Btn1_Clicked;
 
             lbl = new Label()
             {
-                Text = "Teisipäev",
+                Text = "DatePicker",
             };
 
             StackLayout stackLayout = new StackLayout()
@@ -56,11 +56,11 @@ namespace Elemendid2
         private async void Btn1_Clicked(object sender, EventArgs e)
         {
             string s = (sender as Button).Text;
-            if(s == "Kolmapäev")
+            if(s == "TableView")
             {
                 await Navigation.PushAsync(new Kolmapaev());
             }
-            else if (s == "Päevaplan")
+            else if (s == "Koju")
             {
                 await Navigation.PushAsync(new MainPage());
             }

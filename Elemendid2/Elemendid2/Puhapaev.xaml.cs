@@ -17,7 +17,7 @@ namespace Elemendid2
         Button btn;
         public Puhapaev()
         {
-            Title = "Pühapäev";
+            Title = "WebView";
             labelLoading = new Label()
             {
                 Text = "Loading...",
@@ -35,7 +35,7 @@ namespace Elemendid2
 
             btn = new Button()
             {
-                Text = "Päevaplan",
+                Text = "Koju",
             };
             btn.Clicked += Btn_Clicked;
 
@@ -49,7 +49,7 @@ namespace Elemendid2
         private async void Btn_Clicked(object sender, EventArgs e)
         {
             string s = (sender as Button).Text;
-            if(s == "Päevaplan")
+            if(s == "Koju")
             {
                 await Navigation.PushAsync(new MainPage());
             }

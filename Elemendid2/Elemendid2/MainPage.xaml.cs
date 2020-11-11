@@ -15,11 +15,11 @@ namespace Elemendid2
         
         Button[] btns = new Button[7];
         StackLayout stack;
-        string[] paevad = new string[] { "Esmaspäev", "Teisipäev", "Kolmapäev", "Neljapäev", " Reede", "Laupäev", "Pühapäev" };
+        string[] paevad = new string[] { "ListView", "DatePicker", "TableView", "TimePicker", "Speek", "Map", "WebView" };
 
         public MainPage()
         {
-            Title = "Päevaplaan";
+            Title = "Koju";
             stack = new StackLayout();
 
             stack.Padding = new Thickness(10, 10, 10, 10);
@@ -42,31 +42,31 @@ namespace Elemendid2
         private async void Btn_Clicked(object sender, EventArgs e)
         {
             string s = (sender as Button).Text;
-            if (s == "Esmaspäev")
+            if (s == "ListView")
             {
                 await Navigation.PushAsync(new Esmaspäev());
             }
-            else if (s == "Teisipäev")
+            else if (s == "DatePicker")
             {
                 await Navigation.PushAsync(new Teisipaev());
             }
-            else if(s == "Kolmapäev")
+            else if(s == "TableView")
             {
                 await Navigation.PushAsync(new Kolmapaev());
             }
-            else if(s == "Neljapäev")
+            else if(s == "TimePicker")
             {
                 await Navigation.PushAsync(new Neljapaev());
             }
-            else if (s == "Reede")
+            else if (s == "Speek")
             {
                 await Navigation.PushAsync(new Reede());
             }
-            else if (s == "Laupäev")
+            else if (s == "Map")
             {
                 await Navigation.PushAsync(new Laupaev());
             }
-            else if(s == "Pühapäev")
+            else if(s == "WebView")
             {
                 await Navigation.PushAsync(new Puhapaev());
             }

@@ -16,26 +16,25 @@ namespace Elemendid2
         Button btn, btn2;
         Label lbl;
         TableView tableView;
-        TableRoot Tableroot;
-        TableSection tabelSection;
+
         public Kolmapaev()
         {
-            Title = "Kolmapäev";
+            Title = "TableView";
             BackgroundColor = Color.White;
-            Title = "Kolmapäev";
+
             lbl = new Label()
             {
-                Text = "Kolmapäev",
+                Text = "TableView",
             };
             btn = new Button()
             {
-                Text = "Neljapäev",
+                Text = "TimePicker",
             };
             btn.Clicked += Btn_Clicked;
 
             btn2 = new Button()
             {
-                Text = "Päevaplan",
+                Text = "Koju",
             };
             btn2.Clicked += Btn_Clicked;
 
@@ -64,12 +63,12 @@ namespace Elemendid2
         private async void Btn_Clicked(object sender, EventArgs e)
         {
             string s = (sender as Button).Text;
-            if(s == "Neljapäev")
+            if(s == "TimePicker")
             {
                 await Navigation.PushAsync(new Neljapaev());
             }
             
-            else if(s == "Päevaplan")
+            else if(s == "Koju")
             {
                 await Navigation.PushAsync(new MainPage());
             }
